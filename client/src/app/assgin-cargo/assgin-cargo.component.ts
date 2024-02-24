@@ -12,8 +12,6 @@ import { Observable } from 'rxjs';
 })
 
 export class AssginCargoComponent {
-  
- 
 
   showError:boolean=false;
   errorMessage:any;

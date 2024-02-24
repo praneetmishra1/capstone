@@ -29,11 +29,9 @@ public class CargoService {
     }
 
     public boolean assignCargoToDriver(Long cargoId, Long driverId) {
-        Cargo cargo = cargoRepo.findById(cargoId)
-                .orElseThrow(() -> new EntityNotFoundException("Cargo not found with id: " + cargoId));
+        Cargo cargo = cargoRepo.findById(cargoId).orElseThrow(() -> new EntityNotFoundException("Cargo with ID "+cargoId+" not found!"));
 
-        Driver driver = driverRepo.findById(driverId)
-                .orElseThrow(() -> new EntityNotFoundException("Driver not found with id: " + driverId));
+        Driver driver = driverRepo.findById(driverId).orElseThrow(() -> new EntityNotFoundException("Driver with ID "+driverId+" not found!"));
 
         cargo.setDriver(driver);
         cargoRepo.save(cargo);
